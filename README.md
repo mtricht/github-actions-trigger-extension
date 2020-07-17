@@ -4,6 +4,6 @@
 
 ### TODO:
 
-- [] figure out how to release for chrome, firefox and safari
-- [] fix it not loading due to JS page loads (does load on page refresh or from certain pages)
-- [] add support for a dropdown with branches from a repository
+- [ ] figure out how to release for chrome, firefox and safari
+- [ ] fix it not loading due to JS page loads (does load on page refresh or from certain pages)
+- [ ] add support for a dropdown with branches from a repository
