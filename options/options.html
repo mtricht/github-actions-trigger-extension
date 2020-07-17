@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+
+  <form>
+    <h3>Github PAT (Personal Access Token)</h3>
+    <p>Generate a new personal access token with "repo" scope <a href="https://github.com/settings/tokens"
+        target="_blank">here</a></p>
+    <input type="text" id="pat">
+    <h3>GAT JSON</h3>
+    <p></p>Read <a href="https://github.com/mtricht/github-actions-trigger-extension" target="_blank">here</a> how to
+    construct this JSON and how to setup your workflow.</p>
+    <textarea id="triggers" cols="60" rows="25"></textarea>
+    <br />
+    <button type="submit">Save</button>
+    <br />
+    <span id="message"></span>
+  </form>
+
+  <script src="../browser-polyfill.min.js"></script>
+  <script src="options.js"></script>
+
+</body>
+
+</html>

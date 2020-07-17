@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "Github Actions Trigger",
+  "author": "Michael van Tricht",
+  "homepage_url": "https://tricht.dev",
+  "version": "1.0",
+  "description": "Adds an UI to trigger github actions within github.",
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+  "options_ui": {
+    "page": "options/options.html"
+  },
+  "permissions": [
+    "*://*.github.com/*",
+    "webRequest",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.github.com/*/actions*"
+      ],
+      "js": [
+        "browser-polyfill.min.js",
+        "trigger.js"
+      ]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "actions-trigger@tricht.dev"
+    }
+  }
+}

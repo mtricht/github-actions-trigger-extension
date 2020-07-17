@@ -1,0 +1,47 @@
+body {
+  background: #fff;
+  color: #202023;
+}
+
+a {
+  color: #0086B3;
+}
+a:hover {
+  color: #00394D;
+}
+
+h3 {
+  margin-block-start: 2.5rem;
+}
+
+h3:first-of-type {
+  margin-block-start: 1rem;
+}
+
+p,
+label {
+  color: rgb(74, 74, 79);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #202023;
+    color: #fff;
+  }
+
+  p,
+  label {
+    color: rgb(177, 177, 179);
+  }
+
+  a {
+    color: #33CCFF;
+  }
+  a:hover {
+    color: #0086B3;
+  }
+}
+
+input[type="text"] {
+  width: 300px;
+}
