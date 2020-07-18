@@ -13,18 +13,21 @@ Safari App Store: Yet to be published
 The GAT JSON is an array containing one or more objects as described below. Every object maps to a workflow that triggers on a `repository_dispatch` event.
 
 **Required keys**
-
-`repository` The repository that the trigger belongs to.  
-`name` The `repository_dispatch` event name.  
-`parameters` An array containing parameters, which will be mapped to the `github.event.client_payload` object in your workflow.  
+| Key | Description |
+| --- | --- |
+|`repository` | The repository that the trigger belongs to. |
+|`name` | The `repository_dispatch` event name. |
+|`parameters` | An array containing parameters, which will be mapped to the `github.event.client_payload` object in your workflow. |
 
 **Parameter structure**
-`name` The name of the parameters which will be available in your workflow as `github.event.client_payload.<name here>`.  
-`type` The type of parameter. Currently supported are: `string`, `boolean` and `select`  
-`options` An array containing a list of static options for a `select` parameter.  
-`optionsFrom` A name of a repository where tags and/or branches are fetched from.  
-`tags` A boolean for whether to fetch tags from the `optionsFrom` repository.  
-`branches` A boolean for whether to fetch branches from the `optionsFrom` repository.  
+| Key | Description |
+| --- | --- |
+| `name` | The name of the parameters which will be available in your workflow as `github.event.client_payload.<name here>`. |
+| `type` | The type of parameter. Currently supported are: `string`, `boolean` and `select` |
+| `options` | An array containing a list of static options for a `select` parameter. |
+| `optionsFrom` | A name of a repository where tags and/or branches are fetched from. |
+`tags` | A boolean for whether to fetch tags from the `optionsFrom` repository. |
+`branches` | A boolean for whether to fetch branches from the `optionsFrom` repository. |
 
 Example GAT JSON:
 ```json
