@@ -44,7 +44,7 @@ async function dispatch(e, trigger) {
     });
 }
 
-function renderTrigger(e, triggers) {
+async function renderTrigger(e, triggers) {
   const triggerName = e.target.value;
   const filteredTriggers = triggers.filter(trigger => trigger.name == triggerName);
   const trigger = filteredTriggers.length == 0 ? null : filteredTriggers[0];
@@ -53,7 +53,7 @@ function renderTrigger(e, triggers) {
     contentElement.innerHTML = "";
     return;
   }
-  const inputs = trigger.parameters.map(parameter => {
+  const inputs = await Promise.all(trigger.parameters.map(async parameter => {
     let input = "";
     switch (parameter.type) {
       case "string":
@@ -63,19 +63,42 @@ function renderTrigger(e, triggers) {
         input = `<input type="checkbox" id="gat-${parameter.name}" />`;
         break;
       case "select":
-        const options = parameter.options.map(option => {
+        let optionValues = [];
+        if ('options' in parameter) {
+          optionValues = optionValues.concat(parameter.options);
+        }
+        if ('optionsFrom' in parameter) {
+          if ('tags' in parameter && parameter.tags) {
+            optionValues = optionValues.concat(await getRefs(parameter.optionsFrom, 'tags'));
+          }
+          if ('branches' in parameter && parameter.branches) {
+            optionValues = optionValues.concat(await getRefs(parameter.optionsFrom, 'heads'));
+          }
+        }
+        const options = optionValues.map(option => {
           return `<option value="${option}">${option}</option>`;
         }).join("");
         input = `<select class="form-select" id="gat-${parameter.name}">${options}</select>`;
     }
     return `<dl class="form-group"><dt><label>${parameter.name}</label></dt><dd>${input}</dd></dl>`
-  }).join("");
+  }));
   contentElement.innerHTML = `<form id="gat-form" style="padding: 5px; margin-top: 5px;" class="Box">
-  ${inputs}
+  ${inputs.join("")}
   <button class= "btn btn-primary">Trigger</button>
   <span id="gat-message"></span>
   </form>`;
   document.querySelector("#gat-form").addEventListener("submit", (e) => dispatch(e, trigger));
+}
+
+async function getRefs(repository, matchingRef) {
+  let response = await fetch(`https://api.github.com/repos/${repository}/git/matching-refs/${matchingRef}`, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${pat}`
+    }
+  });
+  const refResponse = await response.json();
+  return refResponse.map(ref => ref.ref.replace(`refs/${matchingRef}/`, ""));
 }
 
 async function run() {

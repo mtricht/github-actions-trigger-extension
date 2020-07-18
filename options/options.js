@@ -18,6 +18,13 @@ const exampleJson = `[
           "prod",
           "acc"
         ]
+      },
+      {
+        "name": "param4",
+        "type": "select",
+        "optionsFrom": "mtricht/lunaris",
+        "tags": true,
+        "branches": true
       }
     ]
   }
