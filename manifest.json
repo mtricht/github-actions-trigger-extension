@@ -6,7 +6,7 @@
   "version": "1.0",
   "description": "Adds an UI to trigger github actions from within github.",
   "icons": {
-    "48": "icons/border-48.png"
+    "48": "icons/hand-pointer-solid-48.png"
   },
   "options_ui": {
     "page": "options/options.html"
