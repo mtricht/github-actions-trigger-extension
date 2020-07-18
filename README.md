@@ -2,7 +2,8 @@
 Adds an UI to trigger github actions within github.
 
 ## Screenshots
-To be added
+<img src="https://raw.githubusercontent.com/mtricht/github-actions-trigger-extension/master/screenshots/trigger.png" />  
+<img src="https://raw.githubusercontent.com/mtricht/github-actions-trigger-extension/master/screenshots/options.png" />
 
 ## Links
 Chrome Web Sote: Yet to be published  
