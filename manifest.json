@@ -4,7 +4,7 @@
   "author": "Michael van Tricht",
   "homepage_url": "https://tricht.dev",
   "version": "1.0",
-  "description": "Adds an UI to trigger github actions within github.",
+  "description": "Adds an UI to trigger github actions from within github.",
   "icons": {
     "48": "icons/border-48.png"
   },

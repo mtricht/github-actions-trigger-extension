@@ -1,5 +1,5 @@
 # github-actions-trigger-extension
-Adds an UI to trigger github actions within github.
+Adds an UI to trigger github actions from within github.
 
 ## Screenshots
 <img src="https://raw.githubusercontent.com/mtricht/github-actions-trigger-extension/master/screenshots/trigger.png" />  
