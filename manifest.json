@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "matches": [
-        "*://*.github.com/*/actions*"
+        "*://*.github.com/*"
       ],
       "js": [
         "browser-polyfill.min.js",

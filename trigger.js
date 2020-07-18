@@ -79,10 +79,17 @@ function renderTrigger(e, triggers) {
 }
 
 async function run() {
+  const actionsTab = document.querySelector(`[data-tab-item="actions-tab"]`);
+  if (!actionsTab.classList.contains("selected")) {
+    return;
+  }
+  if (document.querySelector("#gat-container") != null) {
+    return;
+  }
   const storage = await browser.storage.local.get(["pat", "triggers"]);
   const mainContent = document.querySelector("main > .container-xl");
   if (storage.pat == undefined || storage.pat == "" || storage.triggers == undefined || storage.triggers == "") {
-    mainContent.insertAdjacentHTML("afterbegin", `<div>GAT - Please configure triggers first.</div>`);
+    mainContent.insertAdjacentHTML("afterbegin", `<div id="gat-container">GAT - Please configure triggers first.</div>`);
     return;
   }
   pat = storage.pat;
@@ -94,17 +101,17 @@ async function run() {
       }
     });
   } catch (e) {
-    mainContent.insertAdjacentHTML("afterbegin", `<div>GAT - Trigger JSON is invalid, please reconfigure.</div>`);
+    mainContent.insertAdjacentHTML("afterbegin", `<div id="gat-container">GAT - Trigger JSON is invalid, please reconfigure.</div>`);
     return;
   }
   if (filteredTriggers.length == 0) {
-    mainContent.insertAdjacentHTML("afterbegin", `<div>GAT - No triggers configured for this repository.</div>`);
+    mainContent.insertAdjacentHTML("afterbegin", `<div id="gat-container">GAT - No triggers configured for this repository.</div>`);
     return;
   }
   const options = filteredTriggers.map((trigger) => {
     return `<option value="${trigger.name}">${trigger.name}</option>`;
   });
-  mainContent.insertAdjacentHTML("afterbegin", `<div><select class="form-select" id="gat-triggers">
+  mainContent.insertAdjacentHTML("afterbegin", `<div id="gat-container"><select class="form-select" id="gat-triggers">
       <option value="">Select a trigger</span></option>${options}</select><div id="gat-content"></div></div>`);
   document.querySelector("#gat-triggers").onchange = (e) => renderTrigger(e, filteredTriggers);
 }
@@ -114,3 +121,4 @@ const repository = locationPaths[1].toLowerCase() + "/" + locationPaths[2].toLow
 let pat = "";
 
 run();
+setInterval(run, 500);
