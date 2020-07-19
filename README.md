@@ -7,7 +7,7 @@ Adds an UI to trigger github actions from within github.
 
 ## Links
 Chrome Web Sote: Yet to be published  
-Mozilla Addons: Yet to be published  
+Mozilla Addons: https://addons.mozilla.org/en-US/firefox/addon/github-actions-trigger/  
 Safari App Store: Yet to be published  
 
 ## GAT JSON format
