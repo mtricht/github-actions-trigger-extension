@@ -1,3 +1,5 @@
+Just use `workflow_dispatch`: https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
+
 # github-actions-trigger-extension
 Adds an UI to trigger github actions from within github.
 
