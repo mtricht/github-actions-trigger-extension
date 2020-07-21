@@ -12,8 +12,6 @@
     "page": "options/options.html"
   },
   "permissions": [
-    "*://*.github.com/*",
-    "webRequest",
     "storage"
   ],
   "content_scripts": [
