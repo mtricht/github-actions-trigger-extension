@@ -6,9 +6,8 @@ Adds an UI to trigger github actions from within github.
 <img src="https://raw.githubusercontent.com/mtricht/github-actions-trigger-extension/master/screenshots/options.png" />
 
 ## Links
-Chrome Web Store: https://chrome.google.com/webstore/detail/github-actions-trigger/kmgblmkmjddfffkkgifhlbeeohmdakep 
-Mozilla Addons: https://addons.mozilla.org/en-US/firefox/addon/github-actions-trigger/  
-Safari App Store: Yet to be published  
+[Chrome Web Store](https://chrome.google.com/webstore/detail/github-actions-trigger/kmgblmkmjddfffkkgifhlbeeohmdakep)  
+[Mozilla Addons](https://addons.mozilla.org/en-US/firefox/addon/github-actions-trigger/)  
 
 ## GAT JSON format
 The GAT JSON is an array containing one or more objects as described below. Every object maps to a workflow that triggers on a `repository_dispatch` event.
