@@ -12,6 +12,7 @@
     "page": "options/options.html"
   },
   "permissions": [
+    "*://*.github.com/*",
     "storage"
   ],
   "content_scripts": [
